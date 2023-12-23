@@ -251,6 +251,7 @@ namespace FortniteV2
         private void Load_OnClick(object sender, RoutedEventArgs e)
         {
             LoadFromFile();
+            SaveToMemory();
         }
     }
 }
