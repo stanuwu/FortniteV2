@@ -4,6 +4,8 @@ Uses https://github.com/a2x/cs2-dumper to generate offsets.
 Its already included in releases so its only needed if you build.
 
 ## Features
+- External UI
+- Configs
 - Skeleton Esp
 - Recoil Crosshair
 - TriggerBot (LAlt)
