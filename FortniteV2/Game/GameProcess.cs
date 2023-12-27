@@ -78,7 +78,7 @@ namespace FortniteV2.Game
             WindowRectangle = Util.GetClientRectangle(WindowHwnd);
             if (WindowRectangle.Width <= 0 || WindowRectangle.Height <= 0) return false;
 
-            WindowActive = WindowHwnd == User32.GetForegroundWindow();
+            WindowActive = WindowHwnd == User32.GetForegroundWindow() || (User32.GetWindowLong(WindowHwnd, -16) & 0x80000000L) != 0;
 
             return WindowActive;
         }

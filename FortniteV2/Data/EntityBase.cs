@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Numerics;
 using FortniteV2.Data.Raw;
 using FortniteV2.Game;
 using FortniteV2.Utils;
-using SharpDX;
 
 namespace FortniteV2.Data
 {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Numerics;
 using System.Windows;
 using System.Windows.Input;
 using FortniteV2.Game;
 using FortniteV2.Utils;
-using SharpDX;
 using WindowsInput;
 
 namespace FortniteV2.Features
@@ -19,14 +19,14 @@ namespace FortniteV2.Features
         }
 
         public static bool IsOn { get; private set; }
-        private Stopwatch Stopwatch { get; } = new Stopwatch();
+        private Stopwatch Stopwatch { get; } = new();
         private bool Cooldown { get; set; }
         private GameProcess GameProcess { get; set; }
         private GameData GameData { get; set; }
         public static Vector2 CrosshairScreen { get; private set; } = Vector2.Zero;
         private static string TargetName { get; set; } = "";
         public static Vector2 Target { get; private set; } = Vector2.Zero;
-        private InputSimulator InputSimulator { get; } = new InputSimulator();
+        private InputSimulator InputSimulator { get; } = new();
 
         private static int SmoothSpeed(float distance)
         {
@@ -97,7 +97,7 @@ namespace FortniteV2.Features
             if (distance < min) return;
 
             var diff = Target - CrosshairScreen;
-            diff.Normalize();
+            diff = Vector2.Normalize(diff);
             diff *= SmoothSpeed(distance);
 
             if (Cooldown)

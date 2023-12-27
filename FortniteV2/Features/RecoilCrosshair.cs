@@ -1,7 +1,9 @@
-﻿using FortniteV2.Game;
-using FortniteV2.Render;
+﻿using System.Drawing;
+using System.Numerics;
+using FortniteV2.Game;
 using FortniteV2.Utils;
-using SharpDX;
+using GameBarOverlay.Render;
+using Graphics = FortniteV2.Render.Graphics;
 
 namespace FortniteV2.Features
 {
@@ -32,7 +34,7 @@ namespace FortniteV2.Features
 
         public static void Draw(Graphics graphics)
         {
-            if(!Config.EnableRecoilCrosshair) return;
+            if (!Config.EnableRecoilCrosshair) return;
 
             var pointScreen = GetPositionScreen(graphics.GameProcess, graphics.GameData);
             Draw(graphics, new Vector2(pointScreen.X, pointScreen.Y));
@@ -40,9 +42,16 @@ namespace FortniteV2.Features
 
         private static void Draw(Graphics graphics, Vector2 pointScreen)
         {
+            var height = graphics.GameProcess.WindowRectangle.Height;
             const int radius = 12;
-            graphics.DrawLine(CrosshairColor, pointScreen - new Vector2(radius, 0), pointScreen + new Vector2(radius, 0));
-            graphics.DrawLine(CrosshairColor, pointScreen - new Vector2(0, radius), pointScreen + new Vector2(0, radius));
+            var bufferBuilder = Renderer.StartPositionColorLines();
+            var p1 = pointScreen - new Vector2(radius, 0);
+            var p2 = pointScreen + new Vector2(radius, 0);
+            var p3 = pointScreen - new Vector2(0, radius);
+            var p4 = pointScreen + new Vector2(0, radius);
+            Renderer.BufferColorLine(bufferBuilder, p1.X, height - p1.Y, p2.X, height - p2.Y, CrosshairColor);
+            Renderer.BufferColorLine(bufferBuilder, p3.X, height - p3.Y, p4.X, height - p4.Y, CrosshairColor);
+            Renderer.End(bufferBuilder);
         }
     }
 }

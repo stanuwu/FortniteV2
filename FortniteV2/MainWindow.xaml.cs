@@ -20,6 +20,7 @@ namespace FortniteV2
         public MainWindow()
         {
             InitializeComponent();
+
             PreviewKeyDown += (sender, args) =>
             {
                 var key = args.Key;
@@ -203,7 +204,6 @@ namespace FortniteV2
             Dispatcher.Invoke(() => { Status.Content = status; }, DispatcherPriority.Normal);
         }
 
-        [STAThread]
         private void RunCheat()
         {
             UpdateStatus("Starting");

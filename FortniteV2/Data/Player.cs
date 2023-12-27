@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Numerics;
 using FortniteV2.Game;
 using FortniteV2.Utils;
-using SharpDX;
-using MathUtil = FortniteV2.Utils.MathUtil;
+using OpenGL;
 
 namespace FortniteV2.Data
 {
     public class Player : EntityBase
     {
-        public Matrix MatrixViewProjection { get; private set; }
-        public Matrix MatrixViewport { get; private set; }
-        public Matrix MatrixViewProjectionViewport { get; private set; }
+        public Matrix4x4f MatrixViewProjection { get; private set; }
+        public Matrix4x4f MatrixViewport { get; private set; }
+        public Matrix4x4f MatrixViewProjectionViewport { get; private set; }
         public Vector3 ViewOffset { get; private set; }
         public Vector3 EyePosition { get; private set; }
         public Vector3 ViewAngles { get; private set; }
@@ -32,7 +32,7 @@ namespace FortniteV2.Data
         {
             if (!base.Update(gameProcess)) return false;
 
-            MatrixViewProjection = Matrix.Transpose(gameProcess.ModuleClient.Read<Matrix>(Offsets.dwViewMatrix));
+            MatrixViewProjection = gameProcess.ModuleClient.Read<Matrix4x4f>(Offsets.dwViewMatrix).Transposed;
             MatrixViewport = MathUtil.GetMatrixViewport(gameProcess.WindowRectangle.Size);
             MatrixViewProjectionViewport = MatrixViewProjection * MatrixViewport;
 

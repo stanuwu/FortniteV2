@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using FortniteV2.Game;
 using FortniteV2.Utils;
-using SharpDX;
 
 namespace FortniteV2.Data
 {
@@ -16,7 +16,7 @@ namespace FortniteV2.Data
         public int Index { get; }
         public bool Dormant { get; private set; } = true;
 
-        public Dictionary<string, Vector3> BonePos { get; } = new Dictionary<string, Vector3>
+        public Dictionary<string, Vector3> BonePos { get; } = new()
         {
             { "head", Vector3.Zero },
             { "neck_0", Vector3.Zero },

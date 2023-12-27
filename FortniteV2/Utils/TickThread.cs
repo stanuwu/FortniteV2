@@ -46,7 +46,12 @@ namespace FortniteV2.Utils
             }
             catch (ThreadInterruptedException)
             {
+                End();
             }
+        }
+
+        protected virtual void End()
+        {
         }
 
         protected abstract void Tick();

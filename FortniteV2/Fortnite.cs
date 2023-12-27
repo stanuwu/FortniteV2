@@ -3,6 +3,7 @@ using System.Diagnostics;
 using FortniteV2.Features;
 using FortniteV2.Game;
 using FortniteV2.Render;
+using OpenGL;
 
 namespace FortniteV2
 {
@@ -16,7 +17,6 @@ namespace FortniteV2
 
         private GameProcess GameProcess { get; set; }
         private GameData GameData { get; set; }
-        private WindowOverlay WindowOverlay { get; set; }
         private Graphics Graphics { get; set; }
         private AimBot AimBot { get; set; }
         private TriggerBot TriggerBot { get; set; }
@@ -28,9 +28,6 @@ namespace FortniteV2
 
             GameProcess.Dispose();
             GameProcess = default;
-
-            WindowOverlay.Dispose();
-            WindowOverlay = default;
 
             Graphics.Dispose();
             Graphics = default;
@@ -49,14 +46,14 @@ namespace FortniteV2
 
             GameProcess = new GameProcess();
             GameData = new GameData(GameProcess);
-            WindowOverlay = new WindowOverlay(GameProcess);
-            Graphics = new Graphics(GameProcess, GameData, WindowOverlay);
+            Graphics = new Graphics(GameProcess, GameData);
             AimBot = new AimBot(GameProcess, GameData);
             TriggerBot = new TriggerBot(GameProcess, GameData);
 
+            Wgl.MakeCurrent(IntPtr.Zero, IntPtr.Zero);
+
             GameProcess.Start();
             GameData.Start();
-            WindowOverlay.Start();
             Graphics.Start();
             AimBot.Start();
             TriggerBot.Start();
