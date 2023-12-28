@@ -2,7 +2,7 @@
 using System.Numerics;
 using FortniteV2.Game;
 using FortniteV2.Utils;
-using GameBarOverlay.Render;
+using HijackOverlay.Render;
 using Graphics = FortniteV2.Render.Graphics;
 
 namespace FortniteV2.Features
@@ -11,6 +11,8 @@ namespace FortniteV2.Features
     {
         private const int Fov = 90;
         private static readonly Color CrosshairColor = Color.Red;
+        public static float CurrentX { get; private set; }
+        public static float CurrentY { get; private set; }
 
         public static Vector3 GetPositionScreen(GameProcess gameProcess, GameData gameData)
         {
@@ -29,7 +31,10 @@ namespace FortniteV2.Features
                 (float)(-punchX / fovY),
                 0
             );
-            return player.MatrixViewport.Transform(pointClip);
+            var pos = player.MatrixViewport.Transform(pointClip);
+            CurrentX = pos.X;
+            CurrentY = pos.Y;
+            return pos;
         }
 
         public static void Draw(Graphics graphics)

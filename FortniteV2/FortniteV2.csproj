@@ -38,8 +38,8 @@
         <Prefer32bit>false</Prefer32bit>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="GameBarOverlay">
-            <HintPath>..\libs\GameBarOverlay.dll</HintPath>
+        <Reference Include="HijackOverlay">
+          <HintPath>..\libs\HijackOverlay.dll</HintPath>
         </Reference>
         <Reference Include="mscorlib" />
         <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -131,7 +131,9 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
-        <None Include="1.ico" />
+        <None Include="1.ico">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
         <None Include="App.config" />
         <None Include="packages.config" />
     </ItemGroup>

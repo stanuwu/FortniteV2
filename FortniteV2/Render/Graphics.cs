@@ -3,8 +3,8 @@ using System.Windows.Forms;
 using FortniteV2.Features;
 using FortniteV2.Game;
 using FortniteV2.Utils;
-using GameBarOverlay;
-using GameBarOverlay.Render.Font;
+using HijackOverlay;
+using HijackOverlay.Render.Font;
 
 namespace FortniteV2.Render
 {
@@ -18,11 +18,11 @@ namespace FortniteV2.Render
         }
 
         private bool HasInitialized { get; set; }
-        public Color[] Rainbow { get; } = { Color.Red, Color.Orange, Color.Yellow, Color.Green, Color.Blue, Color.Indigo, Color.Violet };
+        public Color[] Rainbow { get; } = { Color.Red, Color.Orange, Color.Yellow, Color.Green, Color.Blue, Color.Indigo };
 
         public GameProcess GameProcess { get; private set; }
         public GameData GameData { get; private set; }
-        public Overlay GameBarOverlay { get; set; }
+        public Overlay GameOverlay { get; set; }
         public FontRenderer FontAzonix64 { get; private set; }
         public FontRenderer FontConsolas32 { get; private set; }
         public FpsCounter FpsCounter { get; private set; }
@@ -38,15 +38,15 @@ namespace FortniteV2.Render
 
         private void InitDevice()
         {
-            GameBarOverlay = new Overlay(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            GameOverlay = new Overlay(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             FontAzonix64 = new FontRenderer("Azonix", 64);
             FontConsolas32 = new FontRenderer("Consolas", 32);
         }
 
         protected override void End()
         {
-            GameBarOverlay.Clear();
-            GameBarOverlay.Dispose();
+            GameOverlay.Clear();
+            GameOverlay.Dispose();
         }
 
         protected override void Tick()
@@ -59,18 +59,18 @@ namespace FortniteV2.Render
 
             if (!GameProcess.IsValid)
             {
-                GameBarOverlay.Clear();
+                GameOverlay.Clear();
                 return;
             }
 
             FpsCounter.Update();
 
             var gameWindow = GameProcess.WindowRectangle;
-            GameBarOverlay.StartDraw(gameWindow.X, Screen.PrimaryScreen.Bounds.Height - gameWindow.Y - gameWindow.Height, gameWindow.Width, gameWindow.Height);
+            GameOverlay.StartDraw(gameWindow.X, Screen.PrimaryScreen.Bounds.Height - gameWindow.Y - gameWindow.Height, gameWindow.Width, gameWindow.Height);
 
             Draw();
 
-            GameBarOverlay.EndDraw();
+            GameOverlay.EndDraw();
         }
 
         private void Draw()

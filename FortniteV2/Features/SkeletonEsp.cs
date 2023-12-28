@@ -3,8 +3,8 @@ using System.Drawing;
 using System.Numerics;
 using FortniteV2.Data;
 using FortniteV2.Utils;
-using GameBarOverlay.Render;
-using GameBarOverlay.Render.Buffer;
+using HijackOverlay.Render;
+using HijackOverlay.Render.Buffer;
 using Graphics = FortniteV2.Render.Graphics;
 
 namespace FortniteV2.Features

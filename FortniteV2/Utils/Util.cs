@@ -126,5 +126,10 @@ namespace FortniteV2.Utils
             Console.WriteLine(keyState);
             return ((keyState >> 15) & 0x0001) == 0x0001;
         }
+
+        public static Color WithAlpha(this Color color, int alpha)
+        {
+            return Color.FromArgb(alpha, color.R, color.G, color.B);
+        }
     }
 }
