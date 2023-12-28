@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using FortniteV2.Data;
+using FortniteV2.Features;
 using FortniteV2.Utils;
 
 namespace FortniteV2.Game
@@ -32,6 +33,7 @@ namespace FortniteV2.Game
 
             Player.Update(GameProcess);
             foreach (var entity in Entities) entity.Update(GameProcess);
+            SkeletonEsp.CalculateBones(GameProcess, this);
         }
     }
 }
