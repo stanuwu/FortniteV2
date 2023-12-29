@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Numerics;
 using FortniteV2.Game;
@@ -25,10 +26,15 @@ namespace FortniteV2.Features
 
             var bufferBuilder = Renderer.StartPositionColorLines();
             for (var i = 0; i < _bones.Count; i++)
-            {
-                if (_bones[i] < 1) continue;
-                Renderer.BufferColorGradientLineGroup(bufferBuilder, _xs[i], _ys[i], _x2s[i], _y2s[i], _friendly[i] ? ColorFriendly : graphics.Rainbow);
-            }
+                try
+                {
+                    if (_bones[i] < 1) continue;
+                    Renderer.BufferColorGradientLineGroup(bufferBuilder, _xs[i], _ys[i], _x2s[i], _y2s[i], _friendly[i] ? ColorFriendly : graphics.Rainbow);
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    // player amount changed while loading in, pass
+                }
 
             Renderer.End(bufferBuilder);
         }
