@@ -92,6 +92,8 @@ namespace FortniteV2.Utils
 
             var csPlayerPawn = (JObject)clientDll["C_CSPlayerPawn"];
             m_aimPunchAngle = ParseOffset(csPlayerPawn, "m_aimPunchAngle");
+            m_ArmorValue = ParseOffset(csPlayerPawn, "m_ArmorValue");
+            m_iShotsFired = ParseOffset(csPlayerPawn, "m_iShotsFired");
 
             var baseEntity = (JObject)clientDll["C_BaseEntity"];
             m_lifeState = ParseOffset(baseEntity, "m_lifeState");
@@ -103,8 +105,6 @@ namespace FortniteV2.Utils
             m_bDormant = ParseOffset(gameSceneNode, "m_bDormant");
 
             var csPlayerPawnBase = (JObject)clientDll["C_CSPlayerPawnBase"];
-            m_ArmorValue = ParseOffset(csPlayerPawnBase, "m_ArmorValue");
-            m_iShotsFired = ParseOffset(csPlayerPawnBase, "m_iShotsFired");
             m_iIDEntIndex = ParseOffset(csPlayerPawnBase, "m_iIDEntIndex");
 
             var skeletonInstance = (JObject)clientDll["CSkeletonInstance"];
