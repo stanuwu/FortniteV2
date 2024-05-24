@@ -33,6 +33,9 @@ We are not encouraging modding or cheating with this repository. It is purely fo
 >
 > Etherium - 0x2cFA49693302974B2afe874d537CE7CA159a847f
 
+> ### Detection: Undetected
+> Currently undetected, but keep in mind, that this is a public cheat and can always be detected in the future. Only use on an account you are ready to lose!
+
 > ### Does not work in Fullscreen mode, for best performance play in Windowed mode.
 
 ## Features
