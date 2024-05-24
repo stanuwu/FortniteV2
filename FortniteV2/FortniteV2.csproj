@@ -38,6 +38,9 @@
         <Prefer32bit>false</Prefer32bit>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="GameOverlay">
+          <HintPath>..\libs\GameOverlay.dll</HintPath>
+        </Reference>
         <Reference Include="HijackOverlay">
           <HintPath>..\libs\HijackOverlay.dll</HintPath>
         </Reference>

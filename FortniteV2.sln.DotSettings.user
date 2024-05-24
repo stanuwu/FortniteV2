@@ -1,5 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CSTan_005CIdeaProjects_005CFortniteV2_005Clibs_005CGameBarOverlay_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CSTan_005CIdeaProjects_005CFortniteV2_005Clibs_005CGameOverlay_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CSTan_005CIdeaProjects_005CFortniteV2_005Clibs_005CHijackOverlay_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CSTan_005CIdeaProjects_005CFortniteV2_005Clibs_005COpenGL_002ENet_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CSTan_005CIdeaProjects_005CFortniteV2_005Clibs_005COpenGL_002ENet_002EMath_002Edll/@EntryIndexedValue">True</s:Boolean>

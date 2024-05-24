@@ -38,11 +38,7 @@ namespace FortniteV2.Render
 
         private void InitDevice()
         {
-            // TODO: make this not garbage
-            GameOverlay = new Overlay(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            // var handle = (IntPtr)typeof(Overlay).GetProperty("WindowHandle", BindingFlags.Instance | BindingFlags.NonPublic).GetMethod
-            //     .Invoke(GameOverlay, new object[0]);
-            // User32.SetWindowPos(handle, new IntPtr(0), 0, 0, 1920 * 2, 1080 * 2, 0U);
+            GameOverlay = new Overlay(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, "Create", "Create");
             FontAzonix64 = new FontRenderer("Azonix", 64);
             FontConsolas32 = new FontRenderer("Consolas", 32);
         }
