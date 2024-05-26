@@ -24,7 +24,9 @@ namespace FortniteV2.Render
         public GameData GameData { get; private set; }
         public Overlay GameOverlay { get; set; }
         public FontRenderer FontAzonix64 { get; private set; }
+        public FontRenderer FontAzonix32 { get; private set; }
         public FontRenderer FontConsolas32 { get; private set; }
+        public FontRenderer FontConsolas16 { get; private set; }
         public FpsCounter FpsCounter { get; private set; }
 
         public override void Dispose()
@@ -40,7 +42,9 @@ namespace FortniteV2.Render
         {
             GameOverlay = new Overlay(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, "Create", "Create");
             FontAzonix64 = new FontRenderer("Azonix", 64);
+            FontAzonix32 = new FontRenderer("Azonix", 32);
             FontConsolas32 = new FontRenderer("Consolas", 32);
+            FontConsolas16 = new FontRenderer("Consolas", 16);
         }
 
         protected override void End()

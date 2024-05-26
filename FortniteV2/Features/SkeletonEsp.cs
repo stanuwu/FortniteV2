@@ -24,7 +24,7 @@ namespace FortniteV2.Features
         {
             if (!Config.EnableSkeletonEsp) return;
 
-            var bufferBuilder = Renderer.StartPositionColorLines();
+            var bufferBuilder = Renderer.StartPositionColorLines(2f);
             for (var i = 0; i < _bones.Count; i++)
                 try
                 {

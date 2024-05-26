@@ -33,22 +33,22 @@ namespace FortniteV2.Features
             );
 
             // logo
-            Renderer.DrawRoundedTextureRect(XOffset, height - 170 - YOffset, 170, 170, 25, Logo);
+            Renderer.DrawRoundedTextureRect(XOffset, height - 100 - YOffset, 100, 100, 15, Logo);
 
             // watermark
-            graphics.FontAzonix64.DrawString(Config.Watermark, XOffset * 2 + 170, height - 64 - YOffset, HudColor);
+            graphics.FontAzonix32.DrawString(Config.Watermark, XOffset * 2 + 100, height - 32 - YOffset, HudColor);
 
             // fps count
-            graphics.FontConsolas32.DrawString($"{(int)graphics.FpsCounter.Fps} FPS", XOffset * 2 + 170, height - 32 - YOffset * 2 - 64, HudColor);
+            graphics.FontConsolas16.DrawString($"{(int)graphics.FpsCounter.Fps} FPS", XOffset * 2 + 100, height - 16 - YOffset * 2 - 32, HudColor);
 
             // triggerbot status
             if (Config.EnableTriggerBot)
-                graphics.FontConsolas32.DrawString("TriggerBot", XOffset * 2 + 170, height - 32 - YOffset * 3 - 64 - 32, TriggerBot.IsOn ? OnColor : OffColor);
+                graphics.FontConsolas16.DrawString("TriggerBot", XOffset * 2 + 100, height - 16 - YOffset * 3 - 32 - 16, TriggerBot.IsOn ? OnColor : OffColor);
 
             // aimbot status
             if (Config.EnableAimBot)
-                graphics.FontConsolas32.DrawString("AimBot", XOffset * 2 + 170,
-                    height - 32 - YOffset * 3 - 64 - 32 - (Config.EnableTriggerBot ? YOffset + 32 : 0),
+                graphics.FontConsolas16.DrawString("AimBot", XOffset * 2 + 100,
+                    height - 16 - YOffset * 3 - 32 - 16 - (Config.EnableTriggerBot ? YOffset + 16 : 0),
                     AimBot.IsOn ? OnColor : OffColor);
 
             // aimbot line and fov
@@ -61,7 +61,7 @@ namespace FortniteV2.Features
                         graphics.Rainbow);
 
                 Renderer.DrawOutlineColorCircle(RecoilCrosshair.CurrentX - Config.AimPixelFov, height - RecoilCrosshair.CurrentY - Config.AimPixelFov,
-                    Config.AimPixelFov * 2, 2,
+                    Config.AimPixelFov * 2, 3,
                     Color.Red.WithAlpha(128), Color.Yellow.WithAlpha(128), Color.Cyan.WithAlpha(128), Color.Lime.WithAlpha(128));
             }
 
