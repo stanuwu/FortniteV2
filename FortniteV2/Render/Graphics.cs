@@ -81,6 +81,7 @@ namespace FortniteV2.Render
         {
             // draw here
             SkeletonEsp.Draw(this);
+            BoxEsp.Draw(this);
             RecoilCrosshair.Draw(this);
             Hud.Draw(GameProcess, this);
         }

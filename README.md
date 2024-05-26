@@ -46,9 +46,11 @@ We are not encouraging modding or cheating with this repository. It is purely fo
 - External UI
 - Configs
 - Skeleton Esp
+- Box Esp
 - Recoil Crosshair
 - TriggerBot (LAlt)
 - AimBot (SPACE)
+- Recoil Control
 
 Don't ask why aimbot is on space my keybinds are weird...
 

@@ -18,6 +18,13 @@ namespace FortniteV2
         public static int TriggerBotDelayRandomMs = 5;
 
         public static bool EnableRecoilCrosshair = true;
+
         public static bool EnableSkeletonEsp = true;
+        public static bool EnableBoxEsp = true;
+        public static int EspWidth = 2;
+        public static bool EspRgb = true;
+
+        public static bool EnableRecoilControl = true;
+        public static int RecoilControlSpeed = 40;
     }
 }

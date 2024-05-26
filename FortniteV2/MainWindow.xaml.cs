@@ -85,6 +85,8 @@ namespace FortniteV2
 
             jsonSave["skeletonesp"] = SkeletonEspCheckBox.IsChecked ?? false;
 
+            jsonSave["boxesp"] = BoxEspCheckBox.IsChecked ?? false;
+
             jsonSave["triggerbot"] = TriggerBotCheckBox.IsChecked ?? false;
             jsonSave["triggerkey"] = TriggerKey.ToString();
             jsonSave["triggerdelay"] = (int)TriggerBotDelaySlider.Value;
@@ -95,6 +97,8 @@ namespace FortniteV2
             jsonSave["aimspeed"] = (int)AimBotSpeedSlider.Value;
             jsonSave["aimfov"] = (int)AimBotFovSlider.Value;
             jsonSave["aimdelay"] = (int)AimBotDelaySlider.Value;
+
+            jsonSave["recoilcontrol"] = RecoilControlCheckBox.IsChecked ?? false;
 
             var cdir = Directory.GetCurrentDirectory() + "\\config";
             if (!Directory.Exists(cdir)) Directory.CreateDirectory(cdir);
@@ -136,6 +140,9 @@ namespace FortniteV2
                     RecoilCrosshairCheckBox.IsChecked = (bool)jsonSave["recoilcrosshair"];
 
                     SkeletonEspCheckBox.IsChecked = (bool)jsonSave["skeletonesp"];
+                    BoxEspCheckBox.IsChecked = (bool)jsonSave["boxesp"];
+                    EspWidthSlider.Value = (int)jsonSave["espwidth"];
+                    EspRgbCheckBox.IsChecked = (bool)jsonSave["esprgb"];
 
                     TriggerBotCheckBox.IsChecked = (bool)jsonSave["triggerbot"];
                     TriggerKey = (Key)Enum.Parse(typeof(Key), (string)jsonSave["triggerkey"] ?? throw new InvalidOperationException());
@@ -149,6 +156,9 @@ namespace FortniteV2
                     AimBotSpeedSlider.Value = (int)jsonSave["aimspeed"];
                     AimBotFovSlider.Value = (int)jsonSave["aimfov"];
                     AimBotDelaySlider.Value = (int)jsonSave["aimdelay"];
+
+                    RecoilControlCheckBox.IsChecked = (bool)jsonSave["recoilcontrol"];
+                    RecoilControlSpeedSlider.Value = (int)jsonSave["recoilcontrolspeed"];
                 }
                 catch (Exception)
                 {
@@ -164,6 +174,9 @@ namespace FortniteV2
             RecoilCrosshairCheckBox.IsChecked = Config.EnableRecoilCrosshair;
 
             SkeletonEspCheckBox.IsChecked = Config.EnableSkeletonEsp;
+            BoxEspCheckBox.IsChecked = Config.EnableBoxEsp;
+            EspWidthSlider.Value = Config.EspWidth;
+            EspRgbCheckBox.IsChecked = Config.EspRgb;
 
             TriggerBotCheckBox.IsChecked = Config.EnableTriggerBot;
             TriggerKey = Config.TriggerBotKey;
@@ -177,6 +190,9 @@ namespace FortniteV2
             AimBotSpeedSlider.Value = Config.AimSpeed;
             AimBotFovSlider.Value = Config.AimPixelFov;
             AimBotDelaySlider.Value = Config.AimSwitchDelayMs;
+
+            RecoilControlCheckBox.IsChecked = Config.EnableRecoilControl;
+            RecoilControlSpeedSlider.Value = Config.RecoilControlSpeed;
         }
 
         private void SaveToMemory()
@@ -186,6 +202,9 @@ namespace FortniteV2
             Config.EnableRecoilCrosshair = RecoilCrosshairCheckBox.IsChecked ?? false;
 
             Config.EnableSkeletonEsp = SkeletonEspCheckBox.IsChecked ?? false;
+            Config.EnableBoxEsp = BoxEspCheckBox.IsChecked ?? false;
+            Config.EspWidth = (int)EspWidthSlider.Value;
+            Config.EspRgb = EspRgbCheckBox.IsChecked ?? false;
 
             Config.EnableTriggerBot = TriggerBotCheckBox.IsChecked ?? false;
             Config.TriggerBotKey = TriggerKey;
@@ -197,6 +216,9 @@ namespace FortniteV2
             Config.AimSpeed = (int)AimBotSpeedSlider.Value;
             Config.AimPixelFov = (int)AimBotFovSlider.Value;
             Config.AimSwitchDelayMs = (int)AimBotDelaySlider.Value;
+
+            Config.EnableRecoilControl = RecoilControlCheckBox.IsChecked ?? false;
+            Config.RecoilControlSpeed = (int)RecoilControlSpeedSlider.Value;
         }
 
         private void UpdateStatus(string status)

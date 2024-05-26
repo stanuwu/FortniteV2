@@ -11,7 +11,8 @@ namespace FortniteV2.Features
 {
     public static class SkeletonEsp
     {
-        private static readonly Color[] ColorFriendly = { Color.Aqua, Color.Blue, Color.DodgerBlue };
+        public static readonly Color[] ColorFriendly = { Color.Aqua, Color.Blue, Color.DodgerBlue };
+        public static readonly Color[] ColorEnemy = { Color.Red, Color.DarkRed, Color.Crimson };
 
         private static List<int> _bones = new();
         private static List<bool> _friendly = new();
@@ -24,12 +25,13 @@ namespace FortniteV2.Features
         {
             if (!Config.EnableSkeletonEsp) return;
 
-            var bufferBuilder = Renderer.StartPositionColorLines(2f);
+            var bufferBuilder = Renderer.StartPositionColorLines(Config.EspWidth);
             for (var i = 0; i < _bones.Count; i++)
                 try
                 {
                     if (_bones[i] < 1) continue;
-                    Renderer.BufferColorGradientLineGroup(bufferBuilder, _xs[i], _ys[i], _x2s[i], _y2s[i], _friendly[i] ? ColorFriendly : graphics.Rainbow);
+                    Renderer.BufferColorGradientLineGroup(bufferBuilder, _xs[i], _ys[i], _x2s[i], _y2s[i],
+                        _friendly[i] ? ColorFriendly : Config.EspRgb ? graphics.Rainbow : ColorEnemy);
                 }
                 catch (IndexOutOfRangeException)
                 {

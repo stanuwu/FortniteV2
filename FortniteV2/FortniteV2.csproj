@@ -83,6 +83,8 @@
             <SubType>Designer</SubType>
         </ApplicationDefinition>
         <Compile Include="Config.cs" />
+        <Compile Include="Features\BoxEsp.cs" />
+        <Compile Include="Features\RecoilControl.cs" />
         <Compile Include="Fortnite.cs" />
         <Compile Include="Render\Graphics.cs" />
         <Compile Include="Sys\Kernel32.cs" />

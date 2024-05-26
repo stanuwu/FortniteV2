@@ -19,6 +19,7 @@ namespace FortniteV2
         private GameData GameData { get; set; }
         private Graphics Graphics { get; set; }
         private AimBot AimBot { get; set; }
+        private RecoilControl RecoilControl { get; set; }
         private TriggerBot TriggerBot { get; set; }
 
         public void Dispose()
@@ -35,6 +36,9 @@ namespace FortniteV2
             AimBot.Dispose();
             AimBot = default;
 
+            RecoilControl.Dispose();
+            RecoilControl = default;
+
             TriggerBot.Dispose();
             TriggerBot = default;
         }
@@ -48,6 +52,7 @@ namespace FortniteV2
             GameData = new GameData(GameProcess);
             Graphics = new Graphics(GameProcess, GameData);
             AimBot = new AimBot(GameProcess, GameData);
+            RecoilControl = new RecoilControl(GameProcess, GameData);
             TriggerBot = new TriggerBot(GameProcess, GameData);
 
             Wgl.MakeCurrent(IntPtr.Zero, IntPtr.Zero);
@@ -56,6 +61,7 @@ namespace FortniteV2
             GameData.Start();
             Graphics.Start();
             AimBot.Start();
+            RecoilControl.Start();
             TriggerBot.Start();
         }
     }

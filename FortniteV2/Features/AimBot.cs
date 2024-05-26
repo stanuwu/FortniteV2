@@ -30,7 +30,7 @@ namespace FortniteV2.Features
 
         private static int SmoothSpeed(float distance)
         {
-            return (int)(Config.AimSpeed + 0.0001 * (distance * distance));
+            return (int)(2 + 0.0001 * (distance * distance)) * Config.AimSpeed;
         }
 
         protected override void Tick()

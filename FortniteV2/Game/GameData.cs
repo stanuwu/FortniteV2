@@ -34,6 +34,7 @@ namespace FortniteV2.Game
             Player.Update(GameProcess);
             foreach (var entity in Entities) entity.Update(GameProcess);
             SkeletonEsp.CalculateBones(GameProcess, this);
+            BoxEsp.CalculateBox(GameProcess, this);
         }
     }
 }
