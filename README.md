@@ -30,10 +30,10 @@ We are not encouraging modding or cheating with this repository. It is purely fo
 > Crypto:
 >
 > Bitcoin - bc1q6nyc02nsj0fjl3vghr5ujft0qg5y00lr5e865k
-> 
+>
 > Litecoin - ltc1qh7dk63yx5w5z5fuy9q93a4nvx0jcnc7zme7xlr
 >
-> Etherium - 0x2cFA49693302974B2afe874d537CE7CA159a847f
+> Etherium (ERC20)- 0x2cFA49693302974B2afe874d537CE7CA159a847f
 > 
 > Monero XMR - 42tYkNy6Krz3zgThhmTgao49ZdfoRBxRfJXrepHQ6uGNEw3wGEnkCYTGijUNwX9sWESorqYKP9wwh9yWJSb4fU8T85MVSzG
 
