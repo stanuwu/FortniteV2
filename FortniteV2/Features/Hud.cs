@@ -58,11 +58,13 @@ namespace FortniteV2.Features
                     Renderer.BufferColorLine(bufferBuilder,
                         AimBot.Target.X, height - AimBot.Target.Y,
                         AimBot.CrosshairScreen.X, height - AimBot.CrosshairScreen.Y,
-                        graphics.Rainbow);
+                        Config.EspRgb ? graphics.Rainbow : new[] { Color.Red });
 
+                // yes this is a bit goofy
                 Renderer.DrawOutlineColorCircle(RecoilCrosshair.CurrentX - Config.AimPixelFov, height - RecoilCrosshair.CurrentY - Config.AimPixelFov,
                     Config.AimPixelFov * 2, 3,
-                    Color.Red.WithAlpha(128), Color.Yellow.WithAlpha(128), Color.Cyan.WithAlpha(128), Color.Lime.WithAlpha(128));
+                    Config.EspRgb ? Color.Red.WithAlpha(128) : Color.Red.WithAlpha(128), Config.EspRgb ? Color.Yellow.WithAlpha(128) : Color.Red.WithAlpha(128),
+                    Config.EspRgb ? Color.Cyan.WithAlpha(128) : Color.Red.WithAlpha(128), Config.EspRgb ? Color.Lime.WithAlpha(128) : Color.Red.WithAlpha(128));
             }
 
             Renderer.End(bufferBuilder);
